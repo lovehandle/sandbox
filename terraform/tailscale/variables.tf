@@ -1,5 +1,5 @@
 variable "tailscale_oauth_client_id" {
-  description = "The Tailscale OAuth client ID" 
+  description = "The Tailscale OAuth client ID"
   type        = string
 }
 
