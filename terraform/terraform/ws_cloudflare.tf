@@ -1,6 +1,6 @@
 resource "tfe_workspace" "cloudflare" {
-  organization = tfe_organization.org.id
-  name         = "cloudflare"
+  organization      = tfe_organization.org.id
+  name              = "cloudflare"
   terraform_version = "latest"
   working_directory = "terraform/cloudflare"
 

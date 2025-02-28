@@ -2,7 +2,7 @@ resource "cloudflare_zone" "zone" {
   name = var.domain
 
   account = {
-    id =  var.cloudflare_account_id
+    id = var.cloudflare_account_id
   }
 
   lifecycle {
