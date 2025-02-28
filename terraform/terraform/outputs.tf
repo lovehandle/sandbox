@@ -6,7 +6,9 @@ output "org_id" {
 locals {
   workspaces = [
     tfe_workspace.cloudflare,
+    tfe_workspace.github,
     tfe_workspace.terraform,
+    tfe_workspace.tailscale,
   ]
 }
 
