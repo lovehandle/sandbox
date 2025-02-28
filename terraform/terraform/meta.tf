@@ -19,8 +19,3 @@ terraform {
   provider "tfe" {
   token = var.tfe_token
 }
-
-variable "tfe_token" {
-  description = "Terraform Cloud API token"
-  sensitive   = true
-}
