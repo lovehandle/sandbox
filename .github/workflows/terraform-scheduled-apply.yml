@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: Trigger Run on All Workspaces
         run: |
-          for wsid in $(curl --header "Authorization: Bearer $TFE_TOKEN" --header "Content-Type: application/vnd.api+json" https://app.terraform.io/api/v2/organizations/lingrino/workspaces | jq -r '.data[].id'); do
+          for wsid in $(curl --header "Authorization: Bearer $TFE_TOKEN" --header "Content-Type: application/vnd.api+json" https://app.terraform.io/api/v2/organizations/lovehandle/workspaces | jq -r '.data[].id'); do
             curl \
               --header "Authorization: Bearer $TFE_TOKEN" \
               --header "Content-Type: application/vnd.api+json" \
