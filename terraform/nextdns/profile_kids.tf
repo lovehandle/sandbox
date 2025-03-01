@@ -36,42 +36,35 @@ resource "nextdns_parental_control" "kids" {
     recreation = false
   }
 
-  category {
-    id         = "gambling"
-    active     = true
-    recreation = false
-  }
+  # category {
+  #   id         = "gambling"
+  #   active     = true
+  #   recreation = false
+  # }
 
-  category {
-    id         = "dating"
-    active     = false
-    recreation = false
-  }
+  # category {
+  #   id         = "dating"
+  #   active     = true
+  #   recreation = false
+  # }
 
-  category {
-    id         = "piracy"
-    active     = true
-    recreation = false
-  }
+  # category {
+  #   id         = "piracy"
+  #   active     = true
+  #   recreation = false
+  # }
 
-  category {
-    id         = "social-networks"
-    active     = true
-    recreation = false
-  }
+  # category {
+  #   id         = "social-networks"
+  #   active     = true
+  #   recreation = false
+  # }
 
-  category {
-    id         = "gaming"
-    active     = true
-    recreation = false
-  }
-
-  category {
-    id         = "video-streaming"
-    active     = false
-    recreation = false
-  }
-
+  # category {
+  #   id         = "gaming"
+  #   active     = true
+  #   recreation = false
+  # }
 
   # Recreation Time
   # Set a period for each day of the week during which some of the websites, apps, games or categories above will not be blocked — e.g. allow Facebook on Mondays and Tuesdays between 6pm and 8pm.
