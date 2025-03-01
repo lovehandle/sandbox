@@ -3,7 +3,7 @@ resource "tailscale_dns_preferences" "prefs" {
 }
 
 resource "tailscale_dns_nameservers" "ns" {
-  nameservers = ["2a07:a8c0::a4:6d2b", "2a07:a8c1::a4:6d2b"] # my nextdns
+  nameservers = ["2a07:a8c0::b2:7451", "2a07:a8c1::b2:7451"] # my nextdns
 }
 
 resource "tailscale_dns_search_paths" "sp" {
