@@ -30,11 +30,11 @@ resource "nextdns_parental_control" "kids" {
   # Category
   # Restrict access to specific categories of websites and apps.
   #
-  category {
-    id         = "porn"
-    active     = true
-    recreation = false
-  }
+  # category {
+  #   id         = "porn"
+  #   active     = true
+  #   recreation = false
+  # }
 
   # category {
   #   id         = "gambling"
