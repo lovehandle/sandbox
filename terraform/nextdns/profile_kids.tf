@@ -61,7 +61,7 @@ resource "nextdns_parental_control" "kids" {
   }
 
   category {
-    id         = "online-gaming"
+    id         = "gaming"
     active     = true
     recreation = false
   }
