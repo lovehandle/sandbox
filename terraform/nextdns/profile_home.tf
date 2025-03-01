@@ -5,7 +5,7 @@ module "profile_home" {
 
 
 resource "nextdns_parental_control" "home" {
-  profile_id = profile_home.nextdns_profile.profile.id
+  profile_id = module.profile_home.id
 
   # Safe Search
   # Filter explicit results on all major search engines, including images and videos. This will also block access to search engines not supporting this feature.
@@ -50,7 +50,7 @@ resource "nextdns_parental_control" "home" {
 }
 
 resource "nextdns_security" "home" {
-  profile_id = profile_home.nextdns_profile.profile.id
+  profile_id = module.profile_home.id
 
   /**
   Threat Intelligence Feeds
@@ -135,7 +135,7 @@ resource "nextdns_security" "home" {
 }
 
 resource "nextdns_privacy" "home" {
-  profile_id = profile_home.nextdns_profile.profile.id
+  profile_id = module.profile_home.id
 
   # Block Disguised Third-Party Trackers
   # Automatically detect and block third-party trackers disguising themselves as first-party to circumvent recent browser's privacy protections like ITP.
@@ -161,7 +161,7 @@ resource "nextdns_privacy" "home" {
 }
 
 resource "nextdns_settings" "home" {
-  profile_id = profile_home.nextdns_profile.profile.id
+  profile_id = module.profile_home.id
 
   logs {
     enabled = true

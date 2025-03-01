@@ -1,3 +1,8 @@
+output "id" {
+  description = "The ID of the profile"
+  value       = nextdns_profile.profile.id
+}
+
 output "profile_doh" {
   description = "The DNS over HTTPS address the profile is reachable at"
   value       = data.nextdns_setup_endpoint.profile.dot
