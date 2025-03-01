@@ -57,6 +57,8 @@ resource "github_repository_ruleset" "sandbox" {
         for_each = [
           "Terraform Cloud/lovehandle/cloudflare",
           "Terraform Cloud/lovehandle/github",
+          "Terraform Cloud/lovehandle/nextdns",
+          "Terraform Cloud/lovehandle/tailscale",
           "Terraform Cloud/lovehandle/terraform",
           "validate"
         ]
