@@ -1,11 +1,11 @@
-module "profile_home" {
+module "profile_iot" {
   source       = "../../terraform-modules/profile"
-  profile_name = "Home"
+  profile_name = "IoT"
 }
 
 
-resource "nextdns_parental_control" "home" {
-  profile_id = module.profile_home.id
+resource "nextdns_parental_control" "iot" {
+  profile_id = module.profile_iot.id
 
   # Safe Search
   # Filter explicit results on all major search engines, including images and videos. This will also block access to search engines not supporting this feature.
@@ -49,8 +49,8 @@ resource "nextdns_parental_control" "home" {
   # }
 }
 
-resource "nextdns_security" "home" {
-  profile_id = module.profile_home.id
+resource "nextdns_security" "iot" {
+  profile_id = module.profile_iot.id
 
   /**
   Threat Intelligence Feeds
@@ -106,14 +106,14 @@ resource "nextdns_security" "home" {
   Block Newly Registered Domains (NRDs)
   Block domains registered less than 30 days ago. Those domains are known to be favored by threat actors to launch malicious campaigns.
   **/
-  nrd = false
+  nrd = true
 
   /**
   Block Dynamic DNS Hostnames
   Dynamic DNS (or DDNS) services let malicious actors quickly set up hostnames for free and without any validation or identity verification. While legit DDNS hostnames are rarely accessed in every-day use, their malicious counterparts are heavily used in phishing campaigns — e.g. paypal‑login.duckdns.org.
   If you are using DDNS, note that this setting will not block the DDNS services' own website or their update API.
   **/
-  ddns = true
+  ddns = false
 
   /**
   Block Parked Domains
@@ -134,8 +134,8 @@ resource "nextdns_security" "home" {
   tlds = toset([])
 }
 
-resource "nextdns_privacy" "home" {
-  profile_id = module.profile_home.id
+resource "nextdns_privacy" "iot" {
+  profile_id = module.profile_iot.id
 
   # Block Disguised Third-Party Trackers
   # Automatically detect and block third-party trackers disguising themselves as first-party to circumvent recent browser's privacy protections like ITP.
@@ -157,11 +157,12 @@ resource "nextdns_privacy" "home" {
     "apple",
     "alexa",
     "samsung",
+    "google",
   ])
 }
 
-resource "nextdns_settings" "home" {
-  profile_id = module.profile_home.id
+resource "nextdns_settings" "iot" {
+  profile_id = module.profile_iot.id
 
   logs {
     enabled = true
@@ -171,7 +172,7 @@ resource "nextdns_settings" "home" {
       log_domains    = true
     }
 
-    retention = "1 day"
+    retention = "1 week"
     location  = "ch"
   }
 
