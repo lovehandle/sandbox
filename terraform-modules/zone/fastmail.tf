@@ -5,7 +5,7 @@ resource "cloudflare_dns_record" "txt_fastmail" {
   name    = var.domain
   type    = "TXT"
   ttl     = 1
-  content = "\"v=spf1 include:spf.messagingengine.com ~all\""
+  content = "\"v=spf1 include:spf.messagingengine.com ?all\""
 }
 
 resource "cloudflare_dns_record" "mx_fastmail" {
@@ -24,9 +24,9 @@ resource "cloudflare_dns_record" "mx_fastmail" {
 
 resource "cloudflare_dns_record" "cname_fastmail_dkim" {
   for_each = var.enable_fastmail ? {
-    0 = { name = "fm1._domainkey", value = "fm1.bigbrain.industries.dkim.fmhosted.com" },
-    1 = { name = "fm2._domainkey", value = "fm2.bigbrain.industries.dkim.fmhosted.com" },
-    2 = { name = "fm3._domainkey", value = "fm3.bigbrain.industries.dkim.fmhosted.com" },
+    0 = { name = "fm1._domainkey", value = "fm1.${var.domain}.dkim.fmhosted.com" },
+    1 = { name = "fm2._domainkey", value = "fm2.${var.domain}.dkim.fmhosted.com" },
+    2 = { name = "fm3._domainkey", value = "fm3.${var.domain}.dkim.fmhosted.com" },
   } : {}
 
   zone_id = cloudflare_zone.zone.id
